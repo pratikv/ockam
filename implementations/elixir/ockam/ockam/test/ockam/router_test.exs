@@ -45,17 +45,16 @@ defmodule Ockam.Router.Tests do
       Ockam.Router.route(message)
 
       assert_receive {:trace, ^printer, :receive, message}
-      assert message == %{
-        onward_route: [{0, <<0, 7, 112, 114, 105, 110, 116, 101, 114>>}],
-        payload: <<0, 7, 0, 5, 104, 101, 108, 108, 111>>,
-        return_route: [
-          # TODO: this does not look correct to me
-          {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>},
-          {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>}
-        ]
-      }
 
-      GenServer.stop({:via, Ockam.Node.process_registry(), "printer"})
+      assert message == %{
+               onward_route: [{0, <<0, 7, 112, 114, 105, 110, 116, 101, 114>>}],
+               payload: <<0, 7, 0, 5, 104, 101, 108, 108, 111>>,
+               return_route: [
+                 # TODO: this does not look correct to me
+                 {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>},
+                 {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>}
+               ]
+             }
     end
 
     @tag :skip
@@ -80,17 +79,16 @@ defmodule Ockam.Router.Tests do
       Ockam.Router.route(message)
 
       assert_receive {:trace, ^printer, :receive, message}
-      assert message == %{
-        onward_route: [{0, <<0, 7, 112, 114, 105, 110, 116, 101, 114>>}],
-        payload: <<0, 7, 0, 5, 104, 101, 108, 108, 111>>,
-        return_route: [
-          # TODO: this does not look correct to me
-          {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>},
-          {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>}
-        ]
-      }
 
-      GenServer.stop({:via, Ockam.Node.process_registry(), "printer"})
+      assert message == %{
+               onward_route: [{0, <<0, 7, 112, 114, 105, 110, 116, 101, 114>>}],
+               payload: <<0, 7, 0, 5, 104, 101, 108, 108, 111>>,
+               return_route: [
+                 # TODO: this does not look correct to me
+                 {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>},
+                 {2, <<2, 7, 0, 127, 0, 0, 1, 160, 15>>}
+               ]
+             }
     end
   end
 end
